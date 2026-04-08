@@ -134,7 +134,7 @@
     <div class="join-layout reveal">
       <div class="join-left">
         <span class="section-label">Join the Community</span>
-        <h2 id="join-heading">Request Access to Watts Community</h2>
+        <h2 id="join-heading">Get Instant Access to Watts Community</h2>
         <p>Fill in your details below and our team will get you set up with free access. No hidden fees. No commitments. Just a community that grows with you.</p>
         <ul class="join-perks">
           <li>
@@ -157,7 +157,7 @@
       </div>
       <div class="join-form-card">
         <div style="padding:var(--space-8) var(--space-8) 0;">
-          <h3 style="font-size:var(--text-2xl);font-weight:700;color:var(--color-text);margin-bottom:var(--space-3);">Request Access</h3>
+          <h3 style="font-size:var(--text-2xl);font-weight:700;color:var(--color-text);margin-bottom:var(--space-3);">Get Instant Access</h3>
           <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.7;margin-bottom:0;">Fill in your details and our team will get you set up. No hidden fees. No commitments.</p>
         </div>
         <div style="position:relative;min-height:965px;">
@@ -168,6 +168,7 @@
             background:var(--color-card-bg);
             border-radius:var(--radius-2xl);
             z-index:2;
+            pointer-events:none;
             transition:opacity 0.3s ease;">
             <div style="
               width:40px;height:40px;
@@ -194,7 +195,12 @@
             data-layout-iframe-id="inline-CwIhHFCNSAkkLTlTsdyR"
             data-form-id="CwIhHFCNSAkkLTlTsdyR"
             title="WattsCommunity_accessform"
-            onload="(function(){var loader=document.getElementById('ghl-form-loader');if(loader){loader.style.opacity='0';setTimeout(function(){loader.style.display='none';},300);}})()"
+onload="(function(){
+  var loader = document.getElementById('ghl-form-loader');
+  if(loader){
+    loader.style.display = 'none'; /* 🔥 completely remove */
+  }
+})()"
           ></iframe>
           <script src="https://link.msgsndr.com/js/form_embed.js"></script>
         </div>
@@ -477,7 +483,6 @@
     </div>
   </div>
 </section>
-
 <!-- ═══ Popup Modal ═══ -->
 <div class="popup-overlay" id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-heading" aria-hidden="true">
   <div class="popup-card">
@@ -492,22 +497,7 @@
       <h3 id="popup-heading">Join Watts Community</h3>
       <p>Request free access to our professional network, events, and resources.</p>
     </div>
-    <div style="position:relative;min-height:336px;">
-      <div id="popup-form-loader" style="
-        position:absolute;inset:0;
-        display:flex;align-items:center;justify-content:center;
-        background:var(--color-bg-elevated);
-        border-radius:var(--radius-xl);
-        z-index:2;
-        transition:opacity 0.3s ease;">
-        <div style="
-          width:36px;height:36px;
-          border:3px solid var(--color-border);
-          border-top-color:var(--color-primary);
-          border-radius:50%;
-          animation:ghl-spin 0.8s linear infinite;">
-        </div>
-      </div>
+    <div id="popup-form-container" style="min-height:336px;"></div>
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/PleAtM4Dj7dQW7WDKAYj"
         style="width:100%;height:100%;min-height:336px;border:none;border-radius:var(--radius-xl);position:relative;z-index:1;"
@@ -524,7 +514,7 @@
         data-layout-iframe-id="inline-PleAtM4Dj7dQW7WDKAYj"
         data-form-id="PleAtM4Dj7dQW7WDKAYj"
         title="WattsCommunity_accessform_free"
-        onload="(function(){var loader=document.getElementById('popup-form-loader');if(loader){loader.style.opacity='0';setTimeout(function(){loader.style.display='none';},300);}})()"
+        onload="(function(){var loader=document.getElementById('popup-form-loader');if(loader){loader.style.pointerEvents='none';loader.style.opacity='0';setTimeout(function(){loader.style.display='none';},300);}})()"
       ></iframe>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     </div>
@@ -539,10 +529,21 @@
   var triggers = ["hero-popup-trigger", "nav-popup-trigger", "mobile-popup-trigger", "cta-popup-trigger"];
 
   function openPopup() {
-    overlay.removeAttribute("aria-hidden");
-    overlay.classList.add("open");
-    document.body.style.overflow = "hidden";
+  overlay.removeAttribute("aria-hidden");
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+
+  var container = document.getElementById("popup-form-container");
+
+  if (container && !container.innerHTML) {
+    container.innerHTML = `
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/PleAtM4Dj7dQW7WDKAYj"
+        style="width:100%;height:336px;border:none;border-radius:var(--radius-xl);">
+      </iframe>
+    `;
   }
+}
 
   function closePopup() {
     overlay.setAttribute("aria-hidden", "true");

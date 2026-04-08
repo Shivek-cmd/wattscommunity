@@ -135,12 +135,12 @@
 }
 
 /* Position each node around the center */
-.community-node--1 { top: 10px; left: 50%; transform: translateX(-50%); }
-.community-node--2 { top: 20%; right: 0; }
-.community-node--3 { bottom: 20%; right: 0; }
+.community-node--1 { top: 20px; left: 50%; transform: translateX(-50%); }
+.community-node--2 { top: 20%; right: 10px; }
+.community-node--3 { bottom: 20%; right: 10px; }
 .community-node--4 { bottom: 10px; left: 50%; transform: translateX(-50%); }
-.community-node--5 { bottom: 20%; left: 0; }
-.community-node--6 { top: 20%; left: 0; }
+.community-node--5 { bottom: 20%; left: 10px; }
+.community-node--6 { top: 20%; left: 10px; }
 
 /* Connecting lines via pseudo-element on parent */
 .hero-community-graphic::before {
@@ -615,7 +615,6 @@
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-2xl);
-  overflow: hidden;
 }
 
 .join-form {
