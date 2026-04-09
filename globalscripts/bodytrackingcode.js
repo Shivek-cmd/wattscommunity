@@ -393,6 +393,8 @@
   /* ─── Smooth Scroll for Anchor Links ─── */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener("click", function (e) {
+      /* Skip links inside GHL-managed sections to avoid intercepting GHL navigation */
+      if (this.closest('.c-section') || this.closest('.c-wrapper') || this.closest('.c-order')) return;
       var target = document.querySelector(this.getAttribute("href"));
       if (target) {
         e.preventDefault();

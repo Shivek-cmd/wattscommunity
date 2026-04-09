@@ -2,17 +2,6 @@
    WATTS COMMUNITY — Home Page Styles
    ═══════════════════════════════════════════════════════════ */
 
-/* ─── GHL Order Form Button ─── */
-#section-R8rCRq5nE0 .form-btn {
-  background: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
-}
-
-#section-R8rCRq5nE0 .form-btn:hover {
-  background: var(--color-primary-hover) !important;
-  border-color: var(--color-primary-hover) !important;
-}
-
 /* ─── Hero ─── */
 .hero {
   position: relative;
@@ -584,21 +573,19 @@
   }
 }
 
-/* ─── Join Info (centered, no form) ─── */
-.join-info {
-  max-width: 640px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+/* ─── Join Section ─── */
+.join-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
 }
 
-.join-info h2 {
+.join-left h2 {
   margin-bottom: var(--space-4);
 }
 
-.join-info > p {
+.join-left > p {
   color: var(--color-text-muted);
   line-height: 1.7;
   margin-bottom: var(--space-6);
@@ -609,8 +596,6 @@
   flex-direction: column;
   gap: var(--space-3);
   list-style: none;
-  text-align: left;
-  margin-bottom: var(--space-6);
 }
 
 .join-perks li {
@@ -624,6 +609,67 @@
 .join-perks li svg {
   color: var(--color-primary);
   flex-shrink: 0;
+}
+
+.join-form-card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group label span {
+  color: var(--color-primary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.7rem var(--space-4);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(189, 36, 38, 0.1);
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-subtle);
+}
+
+@media (max-width: 900px) {
+  .join-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
 }
 
 /* ─── CTA Banner ─── */

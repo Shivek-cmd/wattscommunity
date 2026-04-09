@@ -9,5 +9,5 @@
 | Field | Value | Char Count |
 |---|---|---|
 | Title | Watts Community | Build Your Career Network | 48 |
-| Description | Join Watts Community — a free professional network by Watts Group. Connect with mentors, grow your career, and access exclusive resources. | 138 |
-| Keywords | watts community, professional network canada, career networking canada, mentorship canada, free professional community, newcomers canada, career growth, watts group community |
+| Description | Join Watts Community by Watts Group — connect with mentors, grow your career, and access exclusive resources built for driven professionals. | 142 |
+| Keywords | watts community, professional network canada, career networking canada, mentorship canada, professional community canada, newcomers canada, career growth, watts group community |
